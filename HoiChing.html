@@ -343,6 +343,60 @@
       box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
     }
 
+        /* ===== RGB 流光邊框核心 ===== */
+.btn {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 12px; /* 可自行調整 */
+}
+
+/* 外層流光 */
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    #ff004c,
+    #ff9900,
+    #ffee00,
+    #00ff66,
+    #00c3ff,
+    #7a00ff,
+    #ff004c
+  );
+  background-size: 400% 400%;
+  animation: rgbFlow 6s linear infinite;
+  filter: blur(6px);
+  opacity: 0.9;
+  border-radius: inherit;
+}
+
+/* 內層底色遮罩（讓內容清晰） */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: rgba(0, 0, 0, 0.75); /* 可改成你原本按鈕背景 */
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* 流光動畫 */
+@keyframes rgbFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
     /* Focus 狀態 */
     .btn:focus-visible {
       outline: 2px solid var(--accent);
