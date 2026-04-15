@@ -169,20 +169,31 @@
       }
     }
 
-    /* 頭像 */
-    .avatar-wrapper {
-      position: relative;
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 1.5rem;
-    }
+        /* 頭像 */
+.avatar-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+}
 
-    .avatar-ring {
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-warm));
-      animation: ring-rotate 8s linear infinite;
+        /* RGB 流光外圈 */
+.avatar-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: conic-gradient(
+    red,
+    yellow,
+    lime,
+    cyan,
+    blue,
+    magenta,
+    red
+  );
+  animation: ring-rotate 2.5s linear infinite;
+  filter: blur(2px);
+  z-index: 0;
     }
 
     @keyframes ring-rotate {
